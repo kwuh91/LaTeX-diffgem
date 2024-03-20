@@ -1,0 +1,122 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage[thinc]{esdiff}
+\usepackage{mathtools}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+
+\vspace*{-0cm} % Adjust the value as needed to remove the white space
+
+\section*{№3}
+\subsection*{Условие:}
+Задано тензорное поле $\mathrm{T}$($X^i$), где $X^i$ - цилиндрические координаты. Найти:\\
+$\mathrm{1)}$ ковариантные, контравариантные компоненты этого поля в базисах $\mathrm{r_i}$, $\mathrm{r^i}$,
+где $\mathrm{r_i}$ — ортогональный локальный базис цилиндрической системы координат;\\
+$\mathrm{2)}$ ковариантные производные компонент тензорного поля в базисах $\mathrm{r_i}$, $\mathrm{r^i}$\\
+\subsection*{Исходные данные:}
+Поле задано в виде: $\mathrm{T}$ = $T^ij$$\mathrm{e_i}$$\otimes$$\mathrm{e_j}$;\\
+
+\[
+T^{ij}=\begin{pmatrix}
+	0 & -(X^2) + (X^1) & 0\\
+	0 & 0 & 0\\
+	2\cdot (X^3) & 0 & 0
+\end{pmatrix}
+\]
+
+\subsection*{Решение:}
+$\mathrm{r_i}$ - ортогональный локальный базис цилиндрической системы координат:\\
+\[
+\begin{cases}
+  x^1 = X^1 \cdot \cos(X^2)\\
+  x^2 = X^1 \cdot \sin(X^2)\\
+  x^3 = X^3
+\end{cases}
+\]\\
+$\mathrm{1)}$ Для того, чтобы найти компоненты тензорного поля в базисах $\mathrm{r_i}$, $\mathrm{r^i}$,
+найдем сначала метрическую матрицу для цилиндрических координат $X^i$ и локальные векторы базиса.\\
+$\mathrm{1.1)}$ Найдем якобиеву матрицу для криволинейных координат $X^i$:\\
+\[
+Q^i_k = \frac{\partial x^i}{\partial X^k}
+\]
+\begin{alignat*}{3}
+  & Q^1_1 = \frac{\partial x^1}{\partial X^1} = \cos(X^2) \quad &&Q^1_2 = \frac{\partial x^1}{\partial X^2} = -(X^1)\cdot \sin(X^2) \quad &&Q^1_3 = \frac{\partial x^1}{\partial X^3} = 0 \\
+  & Q^2_1 = \frac{\partial x^2}{\partial X^1} = \sin(X^2) \quad &&Q^2_2 = \frac{\partial x^2}{\partial X^2} = (X^1)\cdot \cos(X^2) \quad &&Q^2_3 = \frac{\partial x^2}{\partial X^3} = 0 \\
+  & Q^3_1 = \frac{\partial x^3}{\partial X^1} = 0 \quad &&Q^3_2 = \frac{\partial x^3}{\partial X^2} = 0 \quad &&Q^3_3 = \frac{\partial x^3}{\partial X^3} = 1 
+\end{alignat*}\\
+Тогда якобиева матрица цилиндрической системы координат имеет вид:\\
+
+\[
+Q^i_k=\begin{pmatrix}
+	\cos(X^2) & -(X^1)\cdot \sin(X^2) & 0\\
+	\sin(X^2) & (X^1)\cdot \cos(X^2) & 0\\
+	0 & 0 & 1
+\end{pmatrix}
+\]\\
+$\mathrm{1.2)}$ Найдем локальные векторы базиса для цилиндрических координат $X^i$:\\
+\[
+\mathrm{r_k} = \frac{\partial x^i}{\partial X^k}\overline{\mathrm{e_k}} = Q^i_k\overline{\mathrm{e_k}}
+\]\\
+Матрица $Q^i_k$ была найдена на предыдущем шаге.\\
+$\mathrm{1.3)}$ Найдем метрическую матрицу для цилиндрических координат $X^i$:\\
+\[
+\mathrm{g_{{ij}}} = \mathrm{r_i}\cdot\mathrm{r_j} = Q^s_iQ^p_j\delta_{sp}
+\]\\
+Найдем компоненты метрической матрицы для цилиндрической системы координат:\\
+\begin{alignat*}{1}
+  & \mathrm{g_{11}} = Q^s_1 \cdot Q^p_1 * \delta_{sp} = 1 \\
+  & \mathrm{g_{12}} = Q^s_1 \cdot Q^p_2 * \delta_{sp} = 0 \\
+  & \mathrm{g_{13}} = Q^s_1 \cdot Q^p_3 * \delta_{sp} = 0 \\
+  & \mathrm{g_{21}} = Q^s_2 \cdot Q^p_1 * \delta_{sp} = 0 \\
+  & \mathrm{g_{22}} = Q^s_2 \cdot Q^p_2 * \delta_{sp} = (X^1)^2 \\
+  & \mathrm{g_{23}} = Q^s_2 \cdot Q^p_3 * \delta_{sp} = 0 \\
+  & \mathrm{g_{31}} = Q^s_3 \cdot Q^p_1 * \delta_{sp} = 0 \\
+  & \mathrm{g_{32}} = Q^s_3 \cdot Q^p_2 * \delta_{sp} = 0 \\
+  & \mathrm{g_{33}} = Q^s_3 \cdot Q^p_3 * \delta_{sp} = 1 
+\end{alignat*}\\
+Запишем полученную метрическую матрицу для цилиндрической системы координат:\\
+\[
+g_{ij}=\begin{pmatrix}
+	1 & 0 & 0\\
+	0 & (X^1)^2 & 0\\
+	0 & 0 & 1
+\end{pmatrix}
+\]\\
+Найдем обратную метрическую матрицу:\\
+\[
+g^{ij}=\begin{pmatrix}
+	1 & 0 & 0\\
+	0 & \frac{1}{(X^1)^2} & 0\\
+	0 & 0 & 1
+\end{pmatrix}
+\]\\
+$\mathrm{1.4)}$ Найдем векторы взаимного локального базиса для цилиндрических координат $X^i$:\\
+\[
+\mathrm{r^{i}} = \mathrm{g^{{ij}}}\mathrm{r_j} = \mathrm{g^{{ij}}}Q^m_j\overline{\mathrm{e_m}} = Q^{im}\overline{\mathrm{e_m}}:
+\]\\
+\begin{alignat*}{1}
+  & Q^{11} = \mathrm{g^{1j}}Q^1_j = g^{11} \cdot Q^1_1+ g^{12} \cdot Q^1_2= g^{13} \cdot Q^1_3= \cos(X^2)+ 0+ 0= \cos(X^2) \\
+  & Q^{12} = \mathrm{g^{1j}}Q^2_j = g^{11} \cdot Q^2_1+ g^{12} \cdot Q^2_2= g^{13} \cdot Q^2_3= \sin(X^2)+ 0+ 0= \sin(X^2) \\
+  & Q^{13} = \mathrm{g^{1j}}Q^3_j = g^{11} \cdot Q^3_1+ g^{12} \cdot Q^3_2= g^{13} \cdot Q^3_3= 0+ 0+ 0= 0 \\
+  & Q^{21} = \mathrm{g^{2j}}Q^1_j = g^{21} \cdot Q^1_1+ g^{22} \cdot Q^1_2= g^{23} \cdot Q^1_3= 0+ -\sin(X^2)/(X^1)+ 0= -\sin(X^2)/(X^1) \\
+  & Q^{22} = \mathrm{g^{2j}}Q^2_j = g^{21} \cdot Q^2_1+ g^{22} \cdot Q^2_2= g^{23} \cdot Q^2_3= 0+ \cos(X^2)/(X^1)+ 0= \cos(X^2)/(X^1) \\
+  & Q^{23} = \mathrm{g^{2j}}Q^3_j = g^{21} \cdot Q^3_1+ g^{22} \cdot Q^3_2= g^{23} \cdot Q^3_3= 0+ 0+ 0= 0 \\
+  & Q^{31} = \mathrm{g^{3j}}Q^1_j = g^{31} \cdot Q^1_1+ g^{32} \cdot Q^1_2= g^{33} \cdot Q^1_3= 0+ 0+ 0= 0 \\
+  & Q^{32} = \mathrm{g^{3j}}Q^2_j = g^{31} \cdot Q^2_1+ g^{32} \cdot Q^2_2= g^{33} \cdot Q^2_3= 0+ 0+ 0= 0 \\
+  & Q^{33} = \mathrm{g^{3j}}Q^3_j = g^{31} \cdot Q^3_1+ g^{32} \cdot Q^3_2= g^{33} \cdot Q^3_3= 0+ 0+ 1= 1 
+\end{alignat*}\\
+Запишем полученную матрицу:\\
+\[
+Q^{im}=\begin{pmatrix}
+	\cos(X^2) & \sin(X^2) & 0\\
+	-\sin(X^2)/(X^1) & \cos(X^2)/(X^1) & 0\\
+	0 & 0 & 1
+\end{pmatrix}
+\]\\
+$\mathrm{1.5)}$Найдем теперь компоненты тензорного поля.\\
+\vspace*{-0cm} % Adjust the value as needed to remove the white space
+
+\end{document}
