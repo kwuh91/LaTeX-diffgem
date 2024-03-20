@@ -178,7 +178,8 @@ class LaTeX:
 
     @staticmethod # This will replace all occurrences of '((...))' with '(...)' in the given text.
     def replace_double_parentheses(text):
-        return re.sub(r'\(\((.*?)\)\)', r'(\1)', text)
+        # return re.sub(r'\(\((.*?)\)\)', r'(\1)', text)
+        return text
 
     # skip line
     def blank(self):
