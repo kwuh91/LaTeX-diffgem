@@ -11,7 +11,7 @@ class LaTeX:
         self.file = file
 
         # initialize doc
-        self.file.write("\\documentclass{article}\n")
+        self.file.write("\\documentclass[a4paper, 12pt, oneside]{article}\n")
 
         # import packages
         if packages is not None:
@@ -52,7 +52,7 @@ class LaTeX:
 
         self.file.write("\\begin{document}\n\n")
 
-        self.file.write("\\vspace*{-0cm} % Adjust the value as needed to remove the white space\n\n")
+        # self.file.write("\\vspace*{-0cm} % Adjust the value as needed to remove the white space\n\n")
 
         # create title if needed
         if title  is not None and \
@@ -63,7 +63,7 @@ class LaTeX:
         return self
         
     def __exit__(self, exc_type, exc_value, tb):
-        self.file.write("\\vspace*{-0cm} % Adjust the value as needed to remove the white space\n\n")
+        # self.file.write("\\vspace*{-0cm} % Adjust the value as needed to remove the white space\n\n")
         self.file.write("\\end{document}\n")
         self.file.close()
 

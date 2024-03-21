@@ -1,16 +1,18 @@
-\documentclass{article}
+\documentclass[a4paper, 12pt, oneside]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[russian]{babel}
 \usepackage{amsmath}
 \usepackage[thinc]{esdiff}
 \usepackage{mathtools}
 \usepackage[T1]{fontenc}
+\usepackage[top=26mm, bottom=20mm]{geometry}
+
+\title{Ковариантные производные тензорного поля, заданного в цилиндрических координатах.}
+\author{Очкин Никита Валерьевич ФН11-42Б}
 
 \begin{document}
 
-\vspace*{-0cm} % Adjust the value as needed to remove the white space
-
-\section*{№3}
+\maketitle
 \subsection*{Условие:}
 Задано тензорное поле $\mathrm{T}$($X^i$), где $X^i$ - цилиндрические координаты. Найти:\\
 $\mathrm{1)}$ ковариантные, контравариантные компоненты этого поля в базисах $\mathrm{r_i}$, $\mathrm{r^i}$,
@@ -67,15 +69,15 @@ $\mathrm{1.3)}$ Найдем метрическую матрицу для цил
 \]\\
 Найдем компоненты метрической матрицы для цилиндрической системы координат:\\
 \begin{alignat*}{1}
-  & \mathrm{g_{11}} = Q^s_1 \cdot Q^p_1 * \delta_{sp} = 1 \\
-  & \mathrm{g_{12}} = Q^s_1 \cdot Q^p_2 * \delta_{sp} = 0 \\
-  & \mathrm{g_{13}} = Q^s_1 \cdot Q^p_3 * \delta_{sp} = 0 \\
-  & \mathrm{g_{21}} = Q^s_2 \cdot Q^p_1 * \delta_{sp} = 0 \\
-  & \mathrm{g_{22}} = Q^s_2 \cdot Q^p_2 * \delta_{sp} = (X^1)^2 \\
-  & \mathrm{g_{23}} = Q^s_2 \cdot Q^p_3 * \delta_{sp} = 0 \\
-  & \mathrm{g_{31}} = Q^s_3 \cdot Q^p_1 * \delta_{sp} = 0 \\
-  & \mathrm{g_{32}} = Q^s_3 \cdot Q^p_2 * \delta_{sp} = 0 \\
-  & \mathrm{g_{33}} = Q^s_3 \cdot Q^p_3 * \delta_{sp} = 1 
+  & \mathrm{g_{11}} = Q^s_1 \cdot Q^p_1 \cdot \delta_{sp} = 1 \\
+  & \mathrm{g_{12}} = Q^s_1 \cdot Q^p_2 \cdot \delta_{sp} = 0 \\
+  & \mathrm{g_{13}} = Q^s_1 \cdot Q^p_3 \cdot \delta_{sp} = 0 \\
+  & \mathrm{g_{21}} = Q^s_2 \cdot Q^p_1 \cdot \delta_{sp} = 0 \\
+  & \mathrm{g_{22}} = Q^s_2 \cdot Q^p_2 \cdot \delta_{sp} = (X^1)^2 \\
+  & \mathrm{g_{23}} = Q^s_2 \cdot Q^p_3 \cdot \delta_{sp} = 0 \\
+  & \mathrm{g_{31}} = Q^s_3 \cdot Q^p_1 \cdot \delta_{sp} = 0 \\
+  & \mathrm{g_{32}} = Q^s_3 \cdot Q^p_2 \cdot \delta_{sp} = 0 \\
+  & \mathrm{g_{33}} = Q^s_3 \cdot Q^p_3 \cdot \delta_{sp} = 1 
 \end{alignat*}\\
 Запишем полученную метрическую матрицу для цилиндрической системы координат:\\
 \[
@@ -749,6 +751,4 @@ $\mathrm{2.8) }$Аналогично вычислим контравариант
 	2 & 0 & 0
 \end{pmatrix}
 \]\\
-\vspace*{-0cm} % Adjust the value as needed to remove the white space
-
 \end{document}

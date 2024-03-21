@@ -271,10 +271,15 @@ if __name__ == '__main__':
         'esdiff'    : ['thinc'],
         'mathtools' : [],
         'fontenc'   : ['T1'],
+        'geometry'  : ['top=26mm', 'bottom=20mm']
+        # 'geometry'  : ['showframe'],
+        # 'layout'    : [],
     }
 
     # create file for output and LaTeX instance
-    with open("latex.tex", "w", encoding="utf-8") as f, LaTeX(f, packages=packages) as doc:
+    with open("latex.tex", "w", encoding="utf-8") as f, LaTeX(f, packages=packages, 
+                                                                 title='Ковариантные производные тензорного поля, заданного в цилиндрических координатах.', 
+                                                                 author='Очкин Никита Валерьевич ФН11-42Б') as doc:
         
         m   = LaTeX.m   # math mode
         bf  = LaTeX.bf  # bold font   
@@ -308,7 +313,6 @@ if __name__ == '__main__':
         #        [2*Z, 0,   0],
         #        [0,   0,   0]]
 
-        doc.section('№3')
         doc.subsection('Условие:')
         doc.write(f'Задано тензорное поле {m(rf("T"))}({m("X^i")}), где {m("X^i")} - цилиндрические координаты. Найти:')
         doc.write(f'{m(rf("1)"))} ковариантные, контравариантные компоненты этого поля в базисах {m(rf("r_i"))}, {m(rf("r^i"))},', end='')
@@ -378,7 +382,7 @@ if __name__ == '__main__':
                 res = 0
                 resStr = rf(f"g_{{{i}{j}}}")
 
-                resStr += f' = Q^s_{i} \\cdot Q^p_{j} * \\delta_{{sp}} = ' 
+                resStr += f' = Q^s_{i} \\cdot Q^p_{j} \\cdot \\delta_{{sp}} = ' 
                 
                 for s in range(1, 3 + 1):
                     for p in range(1, 3 + 1):
