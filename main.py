@@ -224,13 +224,13 @@ def contravariant(gI: List[List[Any]], nabla: List[List[List[Any]]], var: int):
                     nablaSolutions2[m - 1][count] = resStr
                     count += 1
 
-        doc.write(f'При k = 1:')
+        doc.write(f'При m = 1:')
         doc.write(f'{LaTeX.alignat(nablaSolutions2[1 - 1], quad = True)}')
 
-        doc.write(f'При k = 2:')
+        doc.write(f'При m = 2:')
         doc.write(f'{LaTeX.alignat(nablaSolutions2[2 - 1], quad = True)}')
 
-        doc.write(f'При k = 3:')
+        doc.write(f'При m = 3:')
         doc.write(f'{LaTeX.alignat(nablaSolutions2[3 - 1], quad = True)}')
 
         doc.write(f'Запишем результат:')
@@ -271,7 +271,7 @@ if __name__ == '__main__':
         'esdiff'    : ['thinc'],
         'mathtools' : [],
         'fontenc'   : ['T1'],
-        'geometry'  : ['top=26mm', 'bottom=20mm']
+        'geometry'  : ['top=26mm', 'bottom=20mm', 'left=20mm', 'right=20mm']
         # 'geometry'  : ['showframe'],
         # 'layout'    : [],
     }
@@ -279,7 +279,7 @@ if __name__ == '__main__':
     # create file for output and LaTeX instance
     with open("latex.tex", "w", encoding="utf-8") as f, LaTeX(f, packages=packages, 
                                                                  title='Ковариантные производные тензорного поля, заданного в цилиндрических координатах.', 
-                                                                 author='Очкин Никита Валерьевич ФН11-42Б') as doc:
+                                                                 author='ФИО группа') as doc:
         
         m   = LaTeX.m   # math mode
         bf  = LaTeX.bf  # bold font   
@@ -305,13 +305,13 @@ if __name__ == '__main__':
              [0, 1, 0],
              [0, 0, 1]]
 
-        Tⁱʲ = [[0,   X-Y, 0],
-               [0,   0,   0],
-               [2*Z, 0,   0]]
+        # Tⁱʲ = [[0,   X-Y, 0],
+        #        [0,   0,   0],
+        #        [2*Z, 0,   0]]
 
-        # Tⁱʲ = [[0,   X+Y, 0],
-        #        [2*Z, 0,   0],
-        #        [0,   0,   0]]
+        Tⁱʲ = [[0,   X+Y, 0],
+               [2*Z, 0,   0],
+               [0,   0,   0]]
 
         doc.subsection('Условие:')
         doc.write(f'Задано тензорное поле {m(rf("T"))}({m("X^i")}), где {m("X^i")} - цилиндрические координаты. Найти:')
